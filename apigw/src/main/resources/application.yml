@@ -1,0 +1,24 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+#    gateway:
+#      routes:
+#        - id: user
+#          uri: lb://UserManagementService
+#          predicates:
+#            - Path=/api/v1/user/**
+
+    compatibility-verifier:
+      enabled: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
