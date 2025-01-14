@@ -3,22 +3,23 @@ server:
 
 spring:
   application:
-    name: OrderTm
+    name: order
   cloud:
     compatibility-verifier:
       enabled: false
   datasource:
-    url: jdbc:postgresql://localhost:5432/OrderTm
-    username: postgres
+    url: jdbc:mysql://localhost:3306/order?createDatabaseIfNotExist=true
+    username: root
     password: password
-    jpa:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
       hibernate:
-        ddl-auto: update
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.PostgreSQLDialect
-          format_sql: true
-      show_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    show_sql: true
 
 #eureka:
 #  client:
